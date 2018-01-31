@@ -1,0 +1,331 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12108,        323]
+NotebookOptionsPosition[     10559,        287]
+NotebookOutlinePosition[     10904,        302]
+CellTagsIndexPosition[     10861,        299]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "FFMPEG example (Windows, using ",
+ StyleBox["dshow",
+  IgnoreSpellCheck->True],
+ ")"
+}], "Title",
+ CellChangeTimes->{{3.7264148173435693`*^9, 3.7264148197755723`*^9}, {
+  3.726415633869632*^9, 3.726415635109632*^9}, {3.726416965174406*^9, 
+  3.7264169709264827`*^9}},ExpressionUUID->"64773f05-82a7-461f-bdca-\
+11a1d09c64b4"],
+
+Cell[CellGroupData[{
+
+Cell["Find connected device(s)", "Subsubsection",
+ CellChangeTimes->{{3.7264156607344127`*^9, 3.7264156639731536`*^9}, {
+  3.726416991150217*^9, 3.72641699278225*^9}, {3.7264171655183945`*^9, 
+  3.7264171658465366`*^9}},ExpressionUUID->"0289717f-36c2-49a6-a1cd-\
+1b179293cd3c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ffmpeg", "=", "\"\<D:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7264148253072147`*^9, 3.726414838095788*^9}, 
+   3.7264154271352644`*^9},
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"result", "=", 
+   RowBox[{"RunProcess", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "ffmpeg", ",", "\"\<-list_devices\>\"", ",", "\"\<true\>\"", ",", 
+      "\"\<-f\>\"", ",", "\"\<dshow\>\"", ",", "\"\<-i\>\"", ",", 
+      "\"\<dummy\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dshow", "=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"ImportString", "[", 
+       RowBox[{
+        RowBox[{"result", "[", "\"\<StandardError\>\"", "]"}], ",", 
+        "\"\<Lines\>\""}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"StringContainsQ", "[", 
+        RowBox[{"#", ",", "\"\<dshow\>\""}], "]"}], "&"}]}], "]"}]}], ";"}], 
+  " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"look", " ", "for", " ", "dshow", " ", "lines"}], " ", 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dshow", "=", 
+    RowBox[{"Select", "[", 
+     RowBox[{"dshow", ",", 
+      RowBox[{
+       RowBox[{"Not", "[", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"#", ",", "\"\<DirectShow\>\""}], "]"}], "]"}], "&"}]}], 
+     "]"}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"remove", " ", "an", " ", "uninteresting", " ", "line"}], " ", 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"dshow", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"dshow", ",", 
+     RowBox[{
+      RowBox[{"Not", "[", 
+       RowBox[{"StringContainsQ", "[", 
+        RowBox[{"#", ",", "\"\<Alternative\>\""}], "]"}], "]"}], "&"}]}], 
+    "]"}]}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"remove", " ", "another", " ", "uninteresting", " ", "line"}], " ",
+    "*)"}], "\n", 
+  RowBox[{"video", "=", 
+   RowBox[{
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringCases", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"\"\<\\\"\>\"", "~~", "___", "~~", "\"\<\\\"\>\""}]}], 
+         "]"}], "&"}], ",", "dshow"}], "]"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}], 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "this", " ", "assumes", " ", "the", " ", "first", " ", "device", " ", 
+     "is", " ", "the", " ", "one", " ", "you", " ", "want"}], 
+    "*)"}]}]}]}], "Input",
+ CellChangeTimes->{{3.7264021089838576`*^9, 3.726402143958351*^9}, {
+   3.7264148777059894`*^9, 3.7264149319441147`*^9}, 3.7264154321834526`*^9, 
+   3.7264156130810013`*^9, {3.7264170308578167`*^9, 3.7264170336548357`*^9}, {
+   3.7264171777544327`*^9, 3.7264172547273035`*^9}},
+ CellLabel->
+  "In[211]:=",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
+
+Cell[BoxData["\<\"\\\"USB Video Device\\\"\"\>"], "Output",
+ CellChangeTimes->{3.7264151931568894`*^9, 3.7264154454068975`*^9, 
+  3.72641568459208*^9, 3.726417034734846*^9, 3.726417209092439*^9, 
+  3.7264172588573627`*^9},
+ CellLabel->
+  "Out[214]=",ExpressionUUID->"394774d3-dec3-4489-9cdb-c78a93c2d353"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "RecordVideoToFile", "]"}], "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"VideoRecordingBinary", "\[Rule]", "ffmpeg"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"VideoRecordingDevice", "\[Rule]", "video"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"VideoRecordingSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"1280", ",", "720"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"VideoFrameRate", "\[Rule]", "5"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"VideoPixelFormat", "\[Rule]", "\"\<yuyv422\>\""}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"VideoRecordingDuration", "\[Rule]", "5"}]}], 
+    "\[IndentingNewLine]", "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7264163727999806`*^9, 3.7264164400387793`*^9}, 
+   3.726416512624283*^9, {3.726416704464094*^9, 3.7264167200626173`*^9}, {
+   3.726416772648301*^9, 3.726416793367689*^9}, 3.7264169436078863`*^9, {
+   3.7264171254001436`*^9, 3.726417139463029*^9}},
+ CellLabel->
+  "In[215]:=",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RecordVideoToFile", "[", 
+   RowBox[{"file_String", ",", 
+    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "binary", ",", "video", ",", "size", ",", "rate", ",", "format", ",", 
+      "duration", ",", "command"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"binary", "=", 
+      RowBox[{"OptionValue", "[", "VideoRecordingBinary", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"video", "=", 
+      RowBox[{"OptionValue", "[", "VideoRecordingDevice", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"size", "=", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"Riffle", "[", 
+        RowBox[{
+         RowBox[{"ToString", "/@", 
+          RowBox[{"OptionValue", "[", "VideoRecordingSize", "]"}]}], ",", 
+         "\"\<x\>\""}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"rate", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"OptionValue", "[", "VideoFrameRate", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"format", "=", 
+      RowBox[{"OptionValue", "[", "VideoPixelFormat", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"duration", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"OptionValue", "[", "VideoRecordingDuration", "]"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"command", "=", 
+      RowBox[{"{", 
+       RowBox[{
+       "binary", ",", "\"\<-f\>\"", ",", "\"\<dshow\>\"", ",", 
+        "\"\<-video_size\>\"", ",", "size", ",", "\"\<-framerate\>\"", ",", 
+        "rate", ",", "\"\<-pixel_format\>\"", ",", "format", ",", 
+        "\"\<-i\>\"", ",", 
+        RowBox[{"\"\<video=\>\"", "<>", "video"}], ",", "\"\<-t\>\"", ",", 
+        "duration", ",", "file"}], "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"PrintTemporary", "[", 
+      RowBox[{
+       RowBox[{
+       "\"\<Recording for \>\"", "<>", "duration", "<>", 
+        "\"\< seconds - \>\""}], ",", 
+       RowBox[{"ProgressIndicator", "[", 
+        RowBox[{"Appearance", "\[Rule]", "\"\<Percolate\>\""}], "]"}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Quiet", "[", 
+      RowBox[{"DeleteFile", "[", "file", "]"}], "]"}], ";", " ", 
+     RowBox[{"(*", " ", 
+      RowBox[{
+       RowBox[{"delete", " ", "the", " ", "file"}], ",", " ", 
+       RowBox[{"if", " ", "it", " ", "exists"}]}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"RunProcess", "[", "command", "]"}], "[", "\"\<ExitCode\>\"", 
+       "]"}], "===", "0"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.726416344833254*^9, 3.726416371438815*^9}, {
+  3.726416445141815*^9, 3.7264164982232895`*^9}, {3.7264165400075464`*^9, 
+  3.7264166907029996`*^9}, {3.726416730831112*^9, 3.7264167614714975`*^9}, {
+  3.7264167989993258`*^9, 3.726416876400653*^9}, {3.7264172767772293`*^9, 
+  3.726417293904177*^9}, {3.726417412298183*^9, 3.7264174171592073`*^9}},
+ CellLabel->
+  "In[219]:=",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Record the video", "Subsubsection",
+ CellChangeTimes->{{3.72641565344562*^9, 
+  3.7264156557743783`*^9}},ExpressionUUID->"c1624b87-b151-48f3-af8a-\
+922b76a739aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"avi", "=", 
+   RowBox[{"\"\<C:\\\\Users\\\\arnoudb.WRI\\\\\>\"", "<>", 
+    RowBox[{"CreateUUID", "[", "]"}], "<>", "\"\<.avi\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RecordVideoToFile", "[", 
+   RowBox[{"avi", ",", 
+    RowBox[{"VideoRecordingDuration", "\[Rule]", "10"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"record", " ", "for", " ", "10", " ", "seconds"}], " ", 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.7264164992030983`*^9, 3.7264165075272646`*^9}, {
+  3.7264168949048767`*^9, 3.726416900502365*^9}, {3.7264173714735227`*^9, 
+  3.726417385166436*^9}},
+ CellLabel->
+  "In[220]:=",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.7264165089932804`*^9, {3.7264165464522977`*^9, 3.7264166628449078`*^9}, 
+   3.726416830684185*^9, 3.7264169338485546`*^9, 3.726417403224851*^9, 
+   3.7264174382709913`*^9},
+ CellLabel->
+  "Out[221]=",ExpressionUUID->"1b9a41b5-9d28-49be-9908-ca5436ed3c22"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["View the video", "Subsubsection",
+ CellChangeTimes->{{3.7264156739502172`*^9, 
+  3.7264156762542067`*^9}},ExpressionUUID->"1edf54b7-51d6-42ee-b811-\
+dc3ae90b3f9d"],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", "avi", "]"}]], "Input",
+ CellChangeTimes->{{3.72640392070525*^9, 3.7264039428881283`*^9}, 
+   3.726404001152419*^9, {3.7264040618887844`*^9, 3.726404062118784*^9}, {
+   3.726407132957541*^9, 3.726407135036209*^9}, {3.7264071698684483`*^9, 
+   3.726407173932212*^9}, {3.7264153590864005`*^9, 3.726415359510243*^9}},
+ CellLabel->
+  "In[222]:=",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1492, 998},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (January 30, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 342, 9, 96, "Title",ExpressionUUID->"64773f05-82a7-461f-bdca-11a1d09c64b4"],
+Cell[CellGroupData[{
+Cell[947, 35, 277, 4, 44, "Subsubsection",ExpressionUUID->"0289717f-36c2-49a6-a1cd-1b179293cd3c"],
+Cell[1227, 41, 294, 7, 28, "Input",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
+Cell[CellGroupData[{
+Cell[1546, 52, 2522, 71, 105, "Input",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
+Cell[4071, 125, 305, 5, 32, "Output",ExpressionUUID->"394774d3-dec3-4489-9cdb-c78a93c2d353"]
+}, Open  ]],
+Cell[4391, 133, 1123, 23, 162, "Input",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
+Cell[5517, 158, 3093, 70, 238, "Input",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8647, 233, 168, 3, 44, "Subsubsection",ExpressionUUID->"c1624b87-b151-48f3-af8a-922b76a739aa"],
+Cell[CellGroupData[{
+Cell[8840, 240, 717, 17, 48, "Input",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
+Cell[9560, 259, 311, 6, 32, "Output",ExpressionUUID->"1b9a41b5-9d28-49be-9908-ca5436ed3c22"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9920, 271, 169, 3, 44, "Subsubsection",ExpressionUUID->"1edf54b7-51d6-42ee-b811-dc3ae90b3f9d"],
+Cell[10092, 276, 439, 7, 28, "Input",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
