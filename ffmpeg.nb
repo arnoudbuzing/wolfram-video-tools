@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12204,        322]
-NotebookOptionsPosition[     10655,        286]
-NotebookOutlinePosition[     10999,        301]
-CellTagsIndexPosition[     10956,        298]
+NotebookDataLength[     20341,        492]
+NotebookOptionsPosition[     17354,        431]
+NotebookOutlinePosition[     17704,        446]
+CellTagsIndexPosition[     17661,        443]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,8 +45,7 @@ Cell[BoxData[
   ";"}]], "Input",
  CellChangeTimes->{{3.7264148253072147`*^9, 3.726414838095788*^9}, 
    3.7264154271352644`*^9},
- CellLabel->
-  "In[134]:=",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
+ CellLabel->"In[1]:=",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
 
 Cell[CellGroupData[{
 
@@ -89,46 +88,63 @@ Cell[BoxData[{
    RowBox[{"remove", " ", "an", " ", "uninteresting", " ", "line"}], " ", 
    "*)"}]}], "\n", 
  RowBox[{
-  RowBox[{"dshow", "=", 
-   RowBox[{"Select", "[", 
-    RowBox[{"dshow", ",", 
-     RowBox[{
-      RowBox[{"Not", "[", 
-       RowBox[{"StringContainsQ", "[", 
-        RowBox[{"#", ",", "\"\<Alternative\>\""}], "]"}], "]"}], "&"}]}], 
-    "]"}]}], ";", " ", 
+  RowBox[{
+   RowBox[{"dshow", "=", 
+    RowBox[{"Select", "[", 
+     RowBox[{"dshow", ",", 
+      RowBox[{
+       RowBox[{"Not", "[", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"#", ",", "\"\<Alternative\>\""}], "]"}], "]"}], "&"}]}], 
+     "]"}]}], ";"}], " ", 
   RowBox[{"(*", " ", 
    RowBox[{"remove", " ", "another", " ", "uninteresting", " ", "line"}], " ",
-    "*)"}], "\n", 
-  RowBox[{"video", "=", 
-   RowBox[{
-    RowBox[{"Flatten", "[", 
-     RowBox[{"Map", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"StringCases", "[", 
-         RowBox[{"#", ",", 
-          RowBox[{"\"\<\\\"\>\"", "~~", "___", "~~", "\"\<\\\"\>\""}]}], 
-         "]"}], "&"}], ",", "dshow"}], "]"}], "]"}], "[", 
-    RowBox[{"[", "1", "]"}], "]"}], 
-   RowBox[{"(*", " ", 
+    "*)"}]}], "\n", 
+ RowBox[{"devices", "=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"Map", "[", 
     RowBox[{
-    "this", " ", "assumes", " ", "the", " ", "first", " ", "device", " ", 
-     "is", " ", "the", " ", "one", " ", "you", " ", "want"}], 
-    "*)"}]}]}]}], "Input",
+     RowBox[{
+      RowBox[{"StringCases", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"\"\<\\\"\>\"", "~~", "___", "~~", "\"\<\\\"\>\""}]}], "]"}], 
+      "&"}], ",", "dshow"}], "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "this", " ", "assumes", " ", "the", " ", "first", " ", "device", " ", "is",
+     " ", "the", " ", "one", " ", "you", " ", "want"}], "*)"}]}]}], "Input",
  CellChangeTimes->{{3.7264021089838576`*^9, 3.726402143958351*^9}, {
    3.7264148777059894`*^9, 3.7264149319441147`*^9}, 3.7264154321834526`*^9, 
    3.7264156130810013`*^9, {3.7264170308578167`*^9, 3.7264170336548357`*^9}, {
-   3.7264171777544327`*^9, 3.7264172547273035`*^9}},
- CellLabel->
-  "In[211]:=",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
+   3.7264171777544327`*^9, 3.7264172547273035`*^9}, {3.7783355136607885`*^9, 
+   3.7783355213368163`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
 
-Cell[BoxData["\<\"\\\"USB Video Device\\\"\"\>"], "Output",
- CellChangeTimes->{3.7264151931568894`*^9, 3.7264154454068975`*^9, 
-  3.72641568459208*^9, 3.726417034734846*^9, 3.726417209092439*^9, 
-  3.7264172588573627`*^9},
- CellLabel->
-  "Out[214]=",ExpressionUUID->"394774d3-dec3-4489-9cdb-c78a93c2d353"]
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"\\\"IPEVO Point 2 View\\\"\"\>", 
+   ",", "\<\"\\\"Microphone (Logitech USB Headset H340)\\\"\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.7264151931568894`*^9, 3.7264154454068975`*^9, 3.72641568459208*^9, 
+   3.726417034734846*^9, 3.726417209092439*^9, 3.7264172588573627`*^9, 
+   3.778335473987629*^9, {3.778335523892829*^9, 3.7783355502449245`*^9}},
+ CellLabel->"Out[18]=",ExpressionUUID->"e148abe7-fccc-4e5d-a048-2ee05e4c42e5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"video", "=", 
+  RowBox[{"First", "@", "devices"}]}]], "Input",
+ CellChangeTimes->{{3.7783355528589334`*^9, 3.778335559359974*^9}, {
+  3.7783356167386312`*^9, 3.778335617167632*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"45657f04-527e-4d6c-bece-c4f85f4eff8d"],
+
+Cell[BoxData["\<\"\\\"IPEVO Point 2 View\\\"\"\>"], "Output",
+ CellChangeTimes->{3.778335559855976*^9, 3.778335617795639*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"542cc011-97be-4ca0-b42e-35bf27473fe4"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -153,8 +169,7 @@ Cell[BoxData[
    3.726416512624283*^9, {3.726416704464094*^9, 3.7264167200626173`*^9}, {
    3.726416772648301*^9, 3.726416793367689*^9}, 3.7264169436078863`*^9, {
    3.7264171254001436`*^9, 3.726417139463029*^9}},
- CellLabel->
-  "In[215]:=",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
+ CellLabel->"In[24]:=",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
 
 Cell[BoxData[
  RowBox[{
@@ -166,7 +181,8 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{
      "binary", ",", "video", ",", "size", ",", "rate", ",", "format", ",", 
-      "duration", ",", "command"}], "}"}], ",", "\[IndentingNewLine]", 
+      "duration", ",", "command", ",", "result"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"binary", "=", 
       RowBox[{"OptionValue", "[", "VideoRecordingBinary", "]"}]}], ";", 
@@ -192,15 +208,17 @@ Cell[BoxData[
       RowBox[{"ToString", "[", 
        RowBox[{"OptionValue", "[", "VideoRecordingDuration", "]"}], "]"}]}], 
      ";", "\[IndentingNewLine]", 
-     RowBox[{"command", "=", 
-      RowBox[{"{", 
-       RowBox[{
-       "binary", ",", "\"\<-f\>\"", ",", "\"\<dshow\>\"", ",", 
-        "\"\<-video_size\>\"", ",", "size", ",", "\"\<-framerate\>\"", ",", 
-        "rate", ",", "\"\<-pixel_format\>\"", ",", "format", ",", 
-        "\"\<-i\>\"", ",", 
-        RowBox[{"\"\<video=\>\"", "<>", "video"}], ",", "\"\<-t\>\"", ",", 
-        "duration", ",", "file"}], "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Echo", "[", 
+      RowBox[{"command", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "binary", ",", "\"\<-f\>\"", ",", "\"\<dshow\>\"", ",", 
+         "\"\<-video_size\>\"", ",", "size", ",", "\"\<-framerate\>\"", ",", 
+         "rate", ",", "\"\<-pixel_format\>\"", ",", "format", ",", 
+         "\"\<-i\>\"", ",", 
+         RowBox[{"\"\<video=\>\"", "<>", "video"}], ",", "\"\<-t\>\"", ",", 
+         "duration", ",", "file"}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
      RowBox[{"PrintTemporary", "[", 
       RowBox[{
        RowBox[{
@@ -216,16 +234,20 @@ Cell[BoxData[
        RowBox[{"delete", " ", "the", " ", "file"}], ",", " ", 
        RowBox[{"if", " ", "it", " ", "exists"}]}], " ", "*)"}], 
      "\[IndentingNewLine]", 
-     RowBox[{"RunProcess", "[", "command", "]"}], ";", "\[IndentingNewLine]", 
-     "file"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+     RowBox[{"result", "=", 
+      RowBox[{"RunProcess", "[", "command", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"result", ",", "file"}], "}"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
  CellChangeTimes->{{3.726416344833254*^9, 3.726416371438815*^9}, {
   3.726416445141815*^9, 3.7264164982232895`*^9}, {3.7264165400075464`*^9, 
   3.7264166907029996`*^9}, {3.726416730831112*^9, 3.7264167614714975`*^9}, {
   3.7264167989993258`*^9, 3.726416876400653*^9}, {3.7264172767772293`*^9, 
   3.726417293904177*^9}, {3.726417412298183*^9, 3.7264174171592073`*^9}, {
-  3.726417736240556*^9, 3.726417755544118*^9}},
- CellLabel->
-  "In[226]:=",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
+  3.726417736240556*^9, 3.726417755544118*^9}, {3.778335690915*^9, 
+  3.7783357017367887`*^9}, {3.7783357393941574`*^9, 3.7783357431066976`*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -237,10 +259,22 @@ Cell["Record the video", "Subsubsection",
 
 Cell[CellGroupData[{
 
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.7783355832106705`*^9, 3.778335584841638*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"04ae4fce-e065-44c0-9c2a-deeedb3f50eb"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\arnoudb.WRI\\\\Documents\"\>"], "Output",
+ CellChangeTimes->{3.77833558514067*^9, 3.778335622633655*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"55743fef-ec5b-4f2f-aa39-4f0bde54ec2d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"avi", "=", 
-   RowBox[{
+   RowBox[{"\"\<D:\\\\video\\\\\>\"", "<>", 
     RowBox[{"CreateUUID", "[", "]"}], "<>", "\"\<.avi\>\""}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -252,17 +286,63 @@ Cell[BoxData[{
    "*)"}]}]}], "Input",
  CellChangeTimes->{{3.7264164992030983`*^9, 3.7264165075272646`*^9}, {
   3.7264168949048767`*^9, 3.726416900502365*^9}, {3.7264173714735227`*^9, 
-  3.726417385166436*^9}, {3.7264177024011583`*^9, 3.726417703191166*^9}},
- CellLabel->
-  "In[227]:=",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
+  3.726417385166436*^9}, {3.7264177024011583`*^9, 3.726417703191166*^9}, {
+  3.778335647692269*^9, 3.7783356552078524`*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
 
-Cell[BoxData["\<\"5e7c54d7-6f74-4086-a5f7-5b0756bb25d5.avi\"\>"], "Output",
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"D:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe\"\>", ",", "\<\"-f\"\>", 
+   ",", "\<\"dshow\"\>", ",", "\<\"-video_size\"\>", ",", "\<\"1280x720\"\>", 
+   ",", "\<\"-framerate\"\>", ",", "\<\"5\"\>", ",", "\<\"-pixel_format\"\>", 
+   ",", "\<\"yuyv422\"\>", ",", "\<\"-i\"\>", 
+   ",", "\<\"video=\\\"IPEVO Point 2 View\\\"\"\>", ",", "\<\"-t\"\>", 
+   ",", "\<\"10\"\>", 
+   ",", "\<\"D:\\\\video\\\\d39403de-4eee-43e1-8122-5b223d287f59.avi\"\>"}], 
+  "}"}]], "Echo",
+ CellChangeTimes->{
+  3.7783357458677125`*^9},ExpressionUUID->"126a4845-b18b-42b8-ae61-\
+20f37bf0089b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"ExitCode\"\>", "\[Rule]", "1"}], ",", 
+     RowBox[{"\<\"StandardOutput\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+     RowBox[{"\<\"StandardError\"\>", 
+      "\[Rule]", "\<\"ffmpeg version N-80129-ga1953d4 Copyright (c) 2000-2016 \
+the FFmpeg developers\\r\\n  built with gcc 5.3.0 (GCC)\\r\\n  configuration: \
+--enable-gpl --enable-version3 --disable-w32threads --enable-nvenc \
+--enable-avisynth --enable-bzlib --enable-fontconfig --enable-frei0r \
+--enable-gnutls --enable-iconv --enable-libass --enable-libbluray \
+--enable-libbs2b --enable-libcaca --enable-libfreetype --enable-libgme \
+--enable-libgsm --enable-libilbc --enable-libmodplug --enable-libmfx \
+--enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb \
+--enable-libopenjpeg --enable-libopus --enable-librtmp \
+--enable-libschroedinger --enable-libsnappy --enable-libsoxr \
+--enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab \
+--enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx \
+--enable-libwavpack --enable-libwebp --enable-libx264 --enable-libx265 \
+--enable-libxavs --enable-libxvid --enable-libzimg --enable-lzma \
+--enable-decklink --enable-zlib\\r\\n  libavutil      55. 24.100 / 55. 24.100\
+\\r\\n  libavcodec     57. 43.100 / 57. 43.100\\r\\n  libavformat    57. \
+37.101 / 57. 37.101\\r\\n  libavdevice    57.  0.101 / 57.  0.101\\r\\n  \
+libavfilter     6. 46.100 /  6. 46.100\\r\\n  libswscale      4.  1.100 /  4. \
+ 1.100\\r\\n  libswresample   2.  0.101 /  2.  0.101\\r\\n  libpostproc    \
+54.  0.100 / 54.  0.100\\r\\n[dshow @ 0000000002692cc0] Could not set video \
+options\\r\\nvideo=IPEVO Point 2 View: I/O error\\r\\n\"\>"}]}], 
+    "\[RightAssociation]"}], 
+   ",", "\<\"D:\\\\video\\\\d39403de-4eee-43e1-8122-5b223d287f59.avi\"\>"}], 
+  "}"}]], "Output",
  CellChangeTimes->{
   3.7264165089932804`*^9, {3.7264165464522977`*^9, 3.7264166628449078`*^9}, 
    3.726416830684185*^9, 3.7264169338485546`*^9, 3.726417403224851*^9, 
-   3.7264174382709913`*^9, 3.7264177206291466`*^9, 3.726417779314283*^9},
- CellLabel->
-  "Out[228]=",ExpressionUUID->"3a7106a5-1c73-4d30-81fa-3e15583f08ab"]
+   3.7264174382709913`*^9, 3.7264177206291466`*^9, 3.726417779314283*^9, 
+   3.7783356258951864`*^9, 3.7783356571758633`*^9, 3.778335704934803*^9, 
+   3.778335746241721*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"a346264d-1906-4f74-86e0-9f4cc11a1497"]
 }, Open  ]]
 }, Open  ]],
 
@@ -279,14 +359,79 @@ Cell[BoxData[
    3.726404001152419*^9, {3.7264040618887844`*^9, 3.726404062118784*^9}, {
    3.726407132957541*^9, 3.726407135036209*^9}, {3.7264071698684483`*^9, 
    3.726407173932212*^9}, {3.7264153590864005`*^9, 3.726415359510243*^9}},
- CellLabel->
-  "In[225]:=",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"]
+ CellLabel->"In[33]:=",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileType", "[", "avi", "]"}]], "Input",
+ CellChangeTimes->{{3.778335664744903*^9, 3.7783356672319107`*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"4747cf2d-2699-43b6-b395-ed0b6309de10"],
+
+Cell[BoxData["None"], "Output",
+ CellChangeTimes->{3.778335667554914*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"2a513d9d-438a-4d0f-b96a-d07ad1c89541"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["xx", "Section",
+ CellChangeTimes->{{3.778336273197217*^9, 
+  3.7783362733332167`*^9}},ExpressionUUID->"dd88bda4-a89c-4418-b088-\
+81ef6a523793"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ffmpeg"], "Input",
+ CellChangeTimes->{{3.7783362809852476`*^9, 3.77833628210425*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"37573dd2-1ba8-4716-ba73-2feb479f990b"],
+
+Cell[BoxData["\<\"D:\\\\ffmpeg\\\\bin\\\\ffmpeg.exe\"\>"], "Output",
+ CellChangeTimes->{3.7783362823742514`*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"91bb326a-3ee3-4efb-a22e-b8f524285a60"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FFMPEG", "[", "\"\<License\>\"", "]"}], ":=", 
+  RowBox[{"StringReplace", "[", 
+   RowBox[{
+    RowBox[{"RunProcess", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"ffmpeg", ",", "\"\<-hide_banner\>\"", ",", "\"\<-L\>\""}], 
+       "}"}], ",", "\"\<StandardOutput\>\""}], "]"}], ",", 
+    RowBox[{"\"\<\\r\\n\>\"", "\[Rule]", "\"\<\\n\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7783362760572305`*^9, 3.7783363043273296`*^9}, {
+  3.778336367873122*^9, 3.778336454205271*^9}},
+ CellLabel->"In[49]:=",ExpressionUUID->"6f115d5f-3153-4e4c-a71e-f93b11ecf890"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FFMPEG", "[", "\"\<License\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7783364609792967`*^9, 3.7783364655483108`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"17db7362-43dd-4048-9fa1-bf0c4f87cfa8"],
+
+Cell[BoxData["\<\"ffmpeg is free software; you can redistribute it and/or \
+modify\\nit under the terms of the GNU General Public License as published by\
+\\nthe Free Software Foundation; either version 3 of the License, or\\n(at \
+your option) any later version.\\n\\nffmpeg is distributed in the hope that \
+it will be useful,\\nbut WITHOUT ANY WARRANTY; without even the implied \
+warranty of\\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See \
+the\\nGNU General Public License for more details.\\n\\nYou should have \
+received a copy of the GNU General Public License\\nalong with ffmpeg.  If \
+not, see <http://www.gnu.org/licenses/>.\\n\"\>"], "Output",
+ CellChangeTimes->{3.778336465970314*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"a96ed4f7-bd76-4bd5-b38f-38474e7dd426"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{958, 998},
+WindowSize->{1126.5, 998.},
 WindowMargins->{{-7, Automatic}, {Automatic, 0}},
-FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (January 30, 2018)",
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (September 16, 2019)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -301,27 +446,52 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 342, 9, 96, "Title",ExpressionUUID->"64773f05-82a7-461f-bdca-11a1d09c64b4"],
+Cell[580, 22, 342, 9, 98, "Title",ExpressionUUID->"64773f05-82a7-461f-bdca-11a1d09c64b4"],
 Cell[CellGroupData[{
 Cell[947, 35, 277, 4, 44, "Subsubsection",ExpressionUUID->"0289717f-36c2-49a6-a1cd-1b179293cd3c"],
-Cell[1227, 41, 294, 7, 28, "Input",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
+Cell[1227, 41, 289, 6, 28, "Input",ExpressionUUID->"3e0f1999-6702-411f-bc8d-fca573fb8173"],
 Cell[CellGroupData[{
-Cell[1546, 52, 2522, 71, 143, "Input",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
-Cell[4071, 125, 305, 5, 32, "Output",ExpressionUUID->"394774d3-dec3-4489-9cdb-c78a93c2d353"]
-}, Open  ]],
-Cell[4391, 133, 1123, 23, 162, "Input",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
-Cell[5517, 158, 3099, 69, 276, "Input",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
+Cell[1541, 51, 2549, 70, 126, "Input",ExpressionUUID->"99e9e85a-5246-412b-8dad-f969fb11f2e1"],
+Cell[4093, 123, 483, 9, 32, "Output",ExpressionUUID->"e148abe7-fccc-4e5d-a048-2ee05e4c42e5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8653, 232, 168, 3, 44, "Subsubsection",ExpressionUUID->"c1624b87-b151-48f3-af8a-922b76a739aa"],
+Cell[4613, 137, 284, 5, 28, "Input",ExpressionUUID->"45657f04-527e-4d6c-bece-c4f85f4eff8d"],
+Cell[4900, 144, 204, 2, 32, "Output",ExpressionUUID->"542cc011-97be-4ca0-b42e-35bf27473fe4"]
+}, Open  ]],
+Cell[5119, 149, 1119, 22, 165, "Input",ExpressionUUID->"723df9ee-9bfd-41f6-b16b-ad52c32eb9e5"],
+Cell[6241, 173, 3356, 76, 281, "Input",ExpressionUUID->"2460f4c8-d636-4b8b-a544-f8cc1117590a"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[8846, 239, 717, 17, 67, "Input",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
-Cell[9566, 258, 401, 6, 32, "Output",ExpressionUUID->"3a7106a5-1c73-4d30-81fa-3e15583f08ab"]
+Cell[9634, 254, 168, 3, 44, "Subsubsection",ExpressionUUID->"c1624b87-b151-48f3-af8a-922b76a739aa"],
+Cell[CellGroupData[{
+Cell[9827, 261, 204, 3, 28, "Input",ExpressionUUID->"04ae4fce-e065-44c0-9c2a-deeedb3f50eb"],
+Cell[10034, 266, 216, 2, 32, "Output",ExpressionUUID->"55743fef-ec5b-4f2f-aa39-4f0bde54ec2d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10287, 273, 797, 17, 68, "Input",ExpressionUUID->"dc0dd457-fbcc-47c7-97b4-1903870884a2"],
+Cell[11087, 292, 603, 12, 40, "Echo",ExpressionUUID->"126a4845-b18b-42b8-ae61-20f37bf0089b"],
+Cell[11693, 306, 2320, 38, 653, "Output",ExpressionUUID->"a346264d-1906-4f74-86e0-9f4cc11a1497"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10016, 270, 169, 3, 44, "Subsubsection",ExpressionUUID->"1edf54b7-51d6-42ee-b811-dc3ae90b3f9d"],
-Cell[10188, 275, 439, 7, 28, "Input",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"]
+Cell[14062, 350, 169, 3, 44, "Subsubsection",ExpressionUUID->"1edf54b7-51d6-42ee-b811-dc3ae90b3f9d"],
+Cell[14234, 355, 435, 6, 28, "Input",ExpressionUUID->"6d8921d0-8d32-4e4c-aeda-3208811023c2"],
+Cell[CellGroupData[{
+Cell[14694, 365, 210, 3, 28, "Input",ExpressionUUID->"4747cf2d-2699-43b6-b395-ed0b6309de10"],
+Cell[14907, 370, 152, 2, 32, "Output",ExpressionUUID->"2a513d9d-438a-4d0f-b96a-d07ad1c89541"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15108, 378, 149, 3, 67, "Section",ExpressionUUID->"dd88bda4-a89c-4418-b088-81ef6a523793"],
+Cell[CellGroupData[{
+Cell[15282, 385, 178, 2, 28, "Input",ExpressionUUID->"37573dd2-1ba8-4716-ba73-2feb479f990b"],
+Cell[15463, 389, 191, 2, 32, "Output",ExpressionUUID->"91bb326a-3ee3-4efb-a22e-b8f524285a60"]
+}, Open  ]],
+Cell[15669, 394, 605, 13, 28, "Input",ExpressionUUID->"6f115d5f-3153-4e4c-a71e-f93b11ecf890"],
+Cell[CellGroupData[{
+Cell[16299, 411, 222, 3, 28, "Input",ExpressionUUID->"17db7362-43dd-4048-9fa1-bf0c4f87cfa8"],
+Cell[16524, 416, 790, 10, 266, "Output",ExpressionUUID->"a96ed4f7-bd76-4bd5-b38f-38474e7dd426"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
